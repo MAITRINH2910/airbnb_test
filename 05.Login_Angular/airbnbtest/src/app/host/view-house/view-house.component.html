@@ -1,0 +1,86 @@
+<div class="section">
+    <div class="image">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-xs-12">
+            <h1>{{house.title}}</h1>
+            <p> <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 6px"></i> {{house.address}}</p>
+            <p><i class="fas fa-building" style="margin-right: 6px"></i>{{house.typeHouse}}</p>
+            <div>
+                <p style="float: left"><i class="fa fa-heart" aria-hidden="true"
+                        style="margin-right: 6px"></i>{{house.typeRoom}}</p>
+                <p style="float: left ; margin-left: 10px"> <i class="fa fa-bed" aria-hidden="true"
+                        style="margin-right: 6px"></i>{{house.bedRoomNumber}} phòng
+                    ngủ
+                </p>
+                <p style="float: left; margin-left: 10px"> <i class="fa fa-bath" aria-hidden="true"
+                        style="margin-right: 6px"></i>{{house.bathRoomNumber}}
+                    phòng
+                    tắm</p>
+            </div>
+            <br> <br> <br>
+            <p>{{house.description}}</p>
+            <br>
+            <h3><b>Tiện nghi chỗ ở</b></h3>
+            <br> <br> <br> <br> <br>
+            <h3><b>Tiện ích xung quanh</b></h3>
+            <br> <br> <br> <br> <br>
+            <h3><b>Giá phòng</b></h3>
+            <p>Giá có thể tăng vào cuối tuần hoặc ngày lễ</p>
+            <!-- <div>
+                <p style="float: left">Thứ 2 - Chủ nhật</p>
+                <p style="float: right">{{house.pricePerNight}} VNĐ</p>
+            </div>
+            <br>
+            <div>
+                <p style="float: left; margin-left: -120px !important">Giá theo tháng</p>
+                <p style="float: right;margin-right: -90px !important">{{house.pricePerMonth}} VNĐ</p>
+            </div> -->
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Thứ 2 - Chủ nhật</td>
+                        <td>{{house.pricePerNight}} VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Giá theo tháng</td>
+                        <td>{{house.pricePerMonth}} VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br> <br> <br> <br> <br>
+            <h3><b>Đánh giá</b></h3>
+            <br> <br> <br> <br> <br>
+            <h3><b>Nội qui và chính sách chỗ ở</b></h3>
+            <table class="table table-default">
+                <tbody>
+                    <tr>
+                        <td><i class="fa fa-calendar" aria-hidden="true"></i>Nhận phòng</td>
+                        <td>14:00 - 22:00</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-calendar" aria-hidden="true"></i> Trả phòng</td>
+                        <td>8:00 - 12:00</td>
+                    </tr>
+                    <tr>
+                        <td> <i class="fas fa-dog"></i>Vật nuôi</td>
+                        <td>Vật nuôi không được phép</td>
+                    </tr>
+                    <tr>
+                            <td> <i class="fas fa-id-badge"></i>Hủy đặt phòng</td>
+                            <td>Các chính sách hủy và thanh toán trước có khác biệt dựa trên loại chỗ nghỉ</td>
+                        </tr>
+                </tbody>
+            </table>
+            <br> <br> <br> <br> <br>
+         
+        </div>
+        <div class="col-md-4 col-xs-12 d-none d-md-block">
+
+        </div>
+    </div>
+</div>

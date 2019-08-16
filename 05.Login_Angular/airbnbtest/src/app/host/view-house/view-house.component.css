@@ -1,0 +1,27 @@
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+.row {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+}
+
+.col-md-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+}
+
+.col-md-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+}
+
+.is-active-bookingbar .room-action {
+    position: sticky;
+    z-index: 999;
+    top: 0;
+}

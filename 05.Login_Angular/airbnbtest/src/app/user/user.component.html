@@ -1,0 +1,43 @@
+<!-- <h4>Content from Server</h4>
+{{board}}
+{{errorMessage}} -->
+<div class="container fixed-top" style="margin-top: 60px !important">
+    <h3>Thay đổi mật khẩu</h3>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            <table class="table table-hover">
+
+                <tbody>
+                    <tr>
+                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thay đổi thông tin</td>
+                    </tr>
+                    <tr>
+                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thay đổi mật khẩu</td>
+                    </tr>
+                    <tr>
+                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thanh toán</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-8">
+            <form>
+
+                <div class="form-group col col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                    <div class="form-group">
+                        <label>Mật khẩu hiện tại</label>
+                        <input type="text" class="form-control" name="password" [(ngModel)]="oldPass">
+                        <label>Mật khẩu mới</label>
+                        <input type="text" class="form-control" name="password" [(ngModel)]="newPass">
+                        <!-- <label>Xác nhận mật khẩu mới</label>
+                        <input type="text" class="form-control" name="password" [(ngModel)]="newPass"> -->
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="updatePassword()">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
