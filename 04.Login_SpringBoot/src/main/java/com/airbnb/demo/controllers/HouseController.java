@@ -27,6 +27,7 @@ public class HouseController {
         return listResponseEntity;
     }
 
+
     @GetMapping(value ="/house/{id}")
     public ResponseEntity<House> getOneHouse(@PathVariable long id){
         House oneHouse = houseService.getOneHouse(id);
@@ -50,7 +51,7 @@ public class HouseController {
         if (currentHouse == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        currentHouse.setOwner(newHouseRequest.getOwner());
+        currentHouse.setUser(newHouseRequest.getUser());
         currentHouse.setTitle(newHouseRequest.getTitle());
         currentHouse.setDescription(newHouseRequest.getDescription());
         currentHouse.setAddress(newHouseRequest.getAddress());
@@ -65,4 +66,10 @@ public class HouseController {
         return new ResponseEntity<>(currentHouse, HttpStatus.OK);
     }
 
+    @GetMapping(value ="/house/user/{id}")
+    public ResponseEntity<List<House>> getHouseByUserId(@PathVariable long id){
+        List<House> listHouse = houseService.getAllHousesByUserId(id);
+
+        return new ResponseEntity<List<House>>(listHouse, HttpStatus.OK);
+    }
 }
