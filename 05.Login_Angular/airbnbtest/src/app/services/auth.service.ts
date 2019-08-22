@@ -21,6 +21,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:8080/api/auth/signin';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
   private userUrl = 'http://localhost:8080/user';
+  private editUrl = 'http://localhost:8080/user/edit-account/change-password'
   constructor(private http: HttpClient, private token: TokenStorageService) {
   }
 
@@ -63,7 +64,7 @@ export class AuthService {
   }
 
   updatePassword(id: number, newPass: string, oldPass: string) {
-    return this.http.put(`${this.userUrl}/edit-account/change-password/${id}`, {newPass: newPass, oldPass: oldPass});
+    return this.http.put(`${this.editUrl}/${id}`, {newPass: newPass, oldPass: oldPass});
   }
 
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TokenStorageService } from '../services/token-storage.service';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,8 @@ export class HomePageComponent implements OnInit {
   private roles: string[];
   public authority: string;
 
-  constructor(private tokenStorage: TokenStorageService, private authService: AuthService) { }
+  constructor(private tokenStorage: TokenStorageService, private authService: AuthService,
+    public router: Router) { }
 
   @Input() receiveStatus: boolean;
 
@@ -39,6 +41,21 @@ export class HomePageComponent implements OnInit {
         this.authority = 'user';
         return true;
       });
+    }
+  }
+  logout() {
+    if (this.tokenStorage.getToken()) {
+      this.tokenStorage.signOut();
+      this.router.navigate(['/homepage/auth/login'])
+        .then(() => {
+          window.location.reload();
+        });
+    } else {
+      this.tokenStorage.signOut1();
+      this.router.navigate(['/homepage/auth/login'])
+        .then(() => {
+          window.location.reload();
+        });
     }
   }
 }

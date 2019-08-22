@@ -1,0 +1,79 @@
+.row {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+}
+.col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+.is-flex.align-center {
+    align-items: center;
+}
+.is-flex.jstart {
+    justify-content: flex-start;
+}
+.is-flex {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pt--30 {
+    padding-top: 30px!important;
+}
+.container {
+    padding: 0 2.8rem;
+}
+.container--sm {
+    max-width: calc(1296px + 5.6rem);
+    background-color:#264c380a;
+}
+
+img{
+    width: 80%;
+    border-radius: 50%
+}
+.container .row--wide {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+.mt--24 {
+    margin-top: 24px!important;
+}
+.col-md-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+}
+.container .row--wide>.col-lg-1, .container .row--wide>.col-lg-2, .container .row--wide>.col-lg-3, .container .row--wide>.col-lg-4, .container .row--wide>.col-lg-5, .container .row--wide>.col-lg-6, .container .row--wide>.col-lg-7, .container .row--wide>.col-lg-8, .container .row--wide>.col-lg-9, .container .row--wide>.col-lg-10, .container .row--wide>.col-lg-11, .container .row--wide>.col-lg-12, .container .row--wide>.col-md-1, .container .row--wide>.col-md-2, .container .row--wide>.col-md-3, .container .row--wide>.col-md-4, .container .row--wide>.col-md-5, .container .row--wide>.col-md-6, .container .row--wide>.col-md-7, .container .row--wide>.col-md-8, .container .row--wide>.col-md-9, .container .row--wide>.col-md-10, .container .row--wide>.col-md-11, .container .row--wide>.col-md-12, .container .row--wide>.col-sm-1, .container .row--wide>.col-sm-2, .container .row--wide>.col-sm-3, .container .row--wide>.col-sm-4, .container .row--wide>.col-sm-5, .container .row--wide>.col-sm-6, .container .row--wide>.col-sm-7, .container .row--wide>.col-sm-8, .container .row--wide>.col-sm-9, .container .row--wide>.col-sm-10, .container .row--wide>.col-sm-11, .container .row--wide>.col-sm-12, .container .row--wide>.col-xl-1, .container .row--wide>.col-xl-2, .container .row--wide>.col-xl-3, .container .row--wide>.col-xl-4, .container .row--wide>.col-xl-5, .container .row--wide>.col-xl-6, .container .row--wide>.col-xl-7, .container .row--wide>.col-xl-8, .container .row--wide>.col-xl-9, .container .row--wide>.col-xl-10, .container .row--wide>.col-xl-11, .container .row--wide>.col-xl-12, .container .row--wide>.col-xs-1, .container .row--wide>.col-xs-2, .container .row--wide>.col-xs-3, .container .row--wide>.col-xs-4, .container .row--wide>.col-xs-5, .container .row--wide>.col-xs-6, .container .row--wide>.col-xs-7, .container .row--wide>.col-xs-8, .container .row--wide>.col-xs-9, .container .row--wide>.col-xs-10, .container .row--wide>.col-xs-11, .container .row--wide>.col-xs-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.list-vertical {
+    padding: 0 20px;
+    list-style: none;
+    flex-flow: column wrap;
+}
+.is-shadow-box {
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,.05);
+}
+.radius, .rounded {
+    border-radius: 5px!important;
+}
+.rounded {
+    overflow: hidden;
+}
+.d-md-flex {
+    display: flex!important;
+}
+.bg-white {
+    background-color: #fff!important;
+}
+.col-md-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+}
+.mt--md--0 {
+    margin-top: 0!important;
+}

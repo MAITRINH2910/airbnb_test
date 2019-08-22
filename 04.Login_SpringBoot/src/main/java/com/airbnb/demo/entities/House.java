@@ -1,7 +1,5 @@
 package com.airbnb.demo.entities;
 
-import com.airbnb.demo.DTO.request.LoginRequest;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -52,29 +50,41 @@ public class House {
     private String address;
 
     @Column(name = "maxGuest")
-    @NotBlank
     private int maxGuest;
+
+    @Column(name = "status")
+    private boolean status = false;
 
     public House() {
     }
 
-    @OneToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
-    private User owner;
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "house_utilities",
+//            joinColumns = @JoinColumn(name = "house_id"),
+//            inverseJoinColumns = @JoinColumn(name = "utility_id"))
+//    private Set<Utilities> utilities = new HashSet<>();
 
-    public User getOwner() {
-        return owner;
+    @ManyToOne
+    @JoinColumn(name = "owner_id", nullable = true)
+    private User user;
+
+    public User getUser() {
+        return user;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "house_utilities",
-            joinColumns = @JoinColumn(name = "house_id"),
-            inverseJoinColumns = @JoinColumn(name = "utility_id"))
-    private Set<Utilities> utilities = new HashSet<>();
-
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setUser(User user) {
+        this.user = user;
     }
+//    @Column(insertable = false, nullable = true)
+//    private long userId;
+//
+//    public long getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(long userId) {
+//        this.userId = userId;
+//    }
 
     public long getId() {
         return id;
@@ -164,11 +174,19 @@ public class House {
         this.maxGuest = maxGuest;
     }
 
-    public Set<Utilities> getUtilities() {
-        return utilities;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setUtilities(Set<Utilities> utilities) {
-        this.utilities = utilities;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
+
+//    public Set<Utilities> getUtilities() {
+//        return utilities;
+//    }
+//
+//    public void setUtilities(Set<Utilities> utilities) {
+//        this.utilities = utilities;
+//    }
 }

@@ -12,6 +12,10 @@ import { HostComponent } from './host/host/host.component';
 import { AddHouseComponent } from './host/add-house/add-house.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './guard/auth-guard.service';
+import { BookingComponent } from './customer/booking/booking.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './customer/change-password/change-password.component';
+import { EditAccountComponent } from './customer/edit-account/edit-account.component';
 
 
 const routes: Routes = [
@@ -28,30 +32,54 @@ const routes: Routes = [
                 path: '',
                 redirectTo: 'home',
                 pathMatch: 'full'
-            },
+            },         
             {
                 path: 'home',
                 component: HomeComponent
-            },
-            {
-                path: 'user',
-                component: UserComponent
             },
             {
                 path: 'auth/login',
                 component: LoginComponent
             },
             {
-                path: 'signup',
+                path: 'auth/signup',
                 component: RegisterComponent
             },
         ]
     },
+    // {
+    //     path: 'homepage/home',
+    //     component: HomeComponent
+    // },
+    {
+        path: 'homepage/me',
+        component: UserComponent,
+        children: [
+            {
+                path: 'bookings',
+                component: BookingComponent,
+            },
+            {
+                path: 'edit-account',
+                component: EditAccountComponent,
+                children: [
+                    {
+                        path: 'profile',
+                        component: EditProfileComponent,
+                    },
+                    {
+                        path: 'change-password',
+                        component: ChangePasswordComponent,
+                    },
+                ]
+            },
 
+        ]
+    },
     {
         path: 'host',
         component: HostComponent,
-        canActivate:[AuthGuardService],
+        canActivate: [AuthGuardService],
         children: [
 
             {

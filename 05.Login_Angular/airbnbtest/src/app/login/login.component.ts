@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage() {
-    this.router.navigate(['/homepage/home'])
+    this.router.navigate(['/homepage'])
       .then(() => {
         window.location.reload();
       });

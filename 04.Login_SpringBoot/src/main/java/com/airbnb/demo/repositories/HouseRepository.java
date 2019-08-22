@@ -12,6 +12,8 @@ public interface HouseRepository extends JpaRepository<House, Long> {
 
     House findAllById(long id);
 
+    List<House> findHousesByUserId(long id);
+
     House save(House houseEntity);
 
     void deleteById(long id);

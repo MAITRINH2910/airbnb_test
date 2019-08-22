@@ -19,6 +19,12 @@ import { ViewHouseComponent } from './host/view-house/view-house.component';
 import { AddHouseComponent } from './host/add-house/add-house.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuardService } from './guard/auth-guard.service';
+import { BookingComponent } from './customer/booking/booking.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './customer/change-password/change-password.component';
+import { EditAccountComponent } from './customer/edit-account/edit-account.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,10 @@ import { AuthGuardService } from './guard/auth-guard.service';
     ViewHouseComponent,
     AddHouseComponent,
     HomePageComponent,
+    BookingComponent,
+    EditProfileComponent,
+    ChangePasswordComponent,
+    EditAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,9 +51,11 @@ import { AuthGuardService } from './guard/auth-guard.service';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
-    
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
+
   providers: [httpInterceptorProviders, AuthGuardService],
   bootstrap: [AppComponent]
 })

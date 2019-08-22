@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray, ValidatorFn } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, of } from 'rxjs';
 import { House } from 'src/app/models/house.model';
 import { HouseService } from 'src/app/services/house.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,11 +19,10 @@ export class AddHouseComponent implements OnInit {
   loading = false;
   formAddHouse: FormGroup;
   house: House
-
-  constructor(private authService: AuthService
-    , private houseService: HouseService,
-    private routerService: Router,
-    private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private token: TokenStorageService
+  utilities = [];
+  constructor(private authService: AuthService,
+    private formBuilder: FormBuilder, private token: TokenStorageService,
+    private houseService: HouseService, private routerService: Router
   ) { }
 
   public noWhitespaceValidator(control: FormControl) {
@@ -47,9 +46,25 @@ export class AddHouseComponent implements OnInit {
       bathRoomNumber: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]*')]],
       pricePerNight: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{5,11}')]],
       pricePerMonth: ['', [Validators.required, Validators.pattern('^[1-9]{1}[0-9]{5,11}')]],
+      // utilities: new FormArray([], minSelectedCheckboxes(1))
+    });
+    // of(this.getOrders()).subscribe(utilities => {
+    //   this.utilities = utilities;
+    //   this.addCheckboxes();
+    // });
+  }
+  private addCheckboxes() {
+    this.utilities.map((o, i) => {
+      const control = new FormControl(i === 0); // if first item set to true, else false
+      (this.formAddHouse.controls.utilities as FormArray).push(control);
     });
   }
+
   onSubmit() {
+    // const selectedOrderIds = this.formAddHouse.value.utilities
+    //   .map((v, i) => v ? this.utilities[i].id : null)
+    //   .filter(v => v !== null);
+   
     this.submitted = true;
     this.loading = false;
     // if (this.formAddHouse) {
@@ -57,8 +72,8 @@ export class AddHouseComponent implements OnInit {
     //   return;
     // }
     this.authService.getUser().subscribe(
-      user =>{
-        this.house.owner = user;
+      user => {
+        this.house.user = user;
         this.house.title = this.formAddHouse.value.title;
         this.house.description = this.formAddHouse.value.description;
         this.house.typeHouse = this.formAddHouse.value.typeHouse;
@@ -68,6 +83,7 @@ export class AddHouseComponent implements OnInit {
         this.house.bathRoomNumber = this.formAddHouse.value.bathRoomNumber;
         this.house.pricePerNight = this.formAddHouse.value.pricePerNight;
         this.house.pricePerMonth = this.formAddHouse.value.pricePerMonth;
+        console.log(this.house);
         this.sub = this.houseService.addHouse(this.house).subscribe(data => {
           if (data && data.id) {
             this.routerService.navigate(['host/property']);
@@ -88,3 +104,14 @@ export class AddHouseComponent implements OnInit {
   }
 
 }
+// function minSelectedCheckboxes(min = 1) {
+//   const validator: ValidatorFn = (formArray: FormArray) => {
+//     const totalSelected = formArray.controls
+//       .map(control => control.value)
+//       .reduce((prev, next) => next ? prev + next : prev, 0);
+
+//     return totalSelected >= min ? null : { required: true };
+//   };
+
+//   return validator;
+// }

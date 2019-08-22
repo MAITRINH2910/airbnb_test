@@ -10,6 +10,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomeComponent implements OnInit {
   info: any;
+  private roles: string[];
+  public authority: string;
 
   constructor(private token: TokenStorageService, public router: Router, private authService: AuthService) { }
 
@@ -26,6 +28,29 @@ export class HomeComponent implements OnInit {
         username: this.token.getUsernameSession(),
         authorities: this.token.getAuthoritiesSession()
       };
+    }
+
+    if (this.token.getToken()) {
+      this.roles = this.token.getAuthorities();
+      this.roles.every(role => {
+        if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        this.authority = 'user';
+        return true;
+      });
+    }
+    else {
+      this.roles = this.token.getAuthoritiesSession();
+      this.roles.every(role => {
+        if (role === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        this.authority = 'user';
+        return true;
+      });
     }
   }
 

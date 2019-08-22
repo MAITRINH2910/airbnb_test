@@ -48,8 +48,17 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
-//    private Set<House> houses = new HashSet<>();
+//    @OneToMany(targetEntity=House.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = true)
+//    private List<House> housesList;
+
+//    public List<House> getHousesList() {
+//        return housesList;
+//    }
+//
+//    public void setHousesList(List<House> housesList) {
+//        this.housesList = housesList;
+//    }
 
     public User() {
     }
@@ -109,11 +118,5 @@ public class User {
         this.roles = roles;
     }
 
-//    public Set<House> getHouses() {
-//        return houses;
-//    }
-//
-//    public void setHouses(Set<House> houses) {
-//        this.houses = houses;
-//    }
+
 }

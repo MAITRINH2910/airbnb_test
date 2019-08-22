@@ -31,5 +31,8 @@ export class HouseService {
     return this.http.get<House[]>(this.urlHouse, httpOptions);
   }
 
+  public getAllHousesByUserId(id: number){
+    return this.http.get<House[]>(`${this.urlHouse}/user/${id}`, httpOptions);
+  }
 
 }

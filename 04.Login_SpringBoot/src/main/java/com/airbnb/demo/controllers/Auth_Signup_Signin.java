@@ -49,7 +49,7 @@ public class Auth_Signup_Signin {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
@@ -57,6 +57,7 @@ public class Auth_Signup_Signin {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
+//        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getEmail(), userDetails.getAuthorities()));
     }
 
     @PostMapping("/signup")

@@ -61,7 +61,8 @@ public class HouseController {
         currentHouse.setPricePerMonth(newHouseRequest.getPricePerMonth());
         currentHouse.setTypeHouse(newHouseRequest.getTypeHouse());
         currentHouse.setTypeRoom(newHouseRequest.getTypeRoom());
-
+        currentHouse.setMaxGuest(newHouseRequest.getMaxGuest());
+        currentHouse.setStatus(newHouseRequest.isStatus());
         houseService.saveHouse(currentHouse);
         return new ResponseEntity<>(currentHouse, HttpStatus.OK);
     }

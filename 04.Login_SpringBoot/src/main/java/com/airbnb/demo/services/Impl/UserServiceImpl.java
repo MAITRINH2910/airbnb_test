@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -23,7 +22,6 @@ public class UserServiceImpl implements UserService {
     public User findById(Long id) {
         return this.userRepository.findById(id).get();
     }
-
 
     @Override
     public User save(User user){

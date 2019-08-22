@@ -40,7 +40,7 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @PutMapping("/edit-account/change-password/{id}")
+    @PutMapping("/user/edit-account/change-password/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity updateUserPass(@PathVariable(value = "id") Long id, @RequestBody EditPassword editPass) {
         User user = userService.findById(id);
@@ -49,7 +49,7 @@ public class UserController {
         }
         String oldPassword = editPass.getOldPass();
         if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
-            return ResponseEntity.badRequest().build();
+            return new ResponseEntity(new MessageResponse("Nhập sai password cũ!"), HttpStatus.BAD_REQUEST);
         }
         String newPassword = editPass.getNewPass();
         String encodedNewPassword = passwordEncoder.encode(newPassword);

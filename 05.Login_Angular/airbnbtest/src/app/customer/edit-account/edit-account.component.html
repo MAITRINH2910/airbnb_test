@@ -1,0 +1,72 @@
+<!-- <div class="container fixed-top" style="margin-top: 60px !important" style="margin-top: 150px;">
+    <h3></h3>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            <table class="table table-hover">
+
+                <tbody>
+                    <tr>
+                        <td [routerLink]="['profile']" routerLinkActive="router-link-active">Thay đổi thông tin</td>
+                    </tr>
+                    <tr>
+                        <td [routerLink]="['change-password']" routerLinkActive="router-link-active">Thay đổi mật khẩu
+                        </td>
+                    </tr>
+                    <tr>
+                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thanh toán</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+
+</div> -->
+<div class="page-tripboard container pt--30 container--sm container--wide">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="is-flex jstart align-center box-user">
+                <div class="image-box image-box--small image-box--circle"><img
+                        src="https://graph.facebook.com/v3.0/912132459131219/picture?type=normal"></div>
+                <div class="pl--12 box-user__name">
+                    <p class="mb--0 bold p--large"><span class="c-alert"><b>Mai Trinh </b></span></p>
+                    <p class="mb--0 c-gray-6">Cá nhân hóa tài khoản bằng việc cập nhật thông tin của bạn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row--wide mt--24">
+        <div class="col-md-4 col-xs-12">
+            <ul class="is-shadow-box list-vertical bg-white rounded d-none d-md-flex">
+                <li class="active" style="margin-top: 10px; margin-bottom: 0px !important">
+                    <p [routerLink]="['/homepage/me/edit-account/profile']" routerLinkActive="router-link-active">Thông
+                        tin tài khoản</p>
+                    <hr>
+                </li>
+                <li >
+                    <p style="margin-top: -10px; margin-bottom: -5px !important" [routerLink]="['/homepage/me/edit-account/change-password']"
+                        routerLinkActive="router-link-active">Thay đổi mật khẩu</p>
+                    <hr>
+                </li>
+                <li>
+                    <p style="margin-top: -10px; margin-bottom: -5px !important">Thanh toán</p>
+                    <hr>
+                </li>
+                <li class="">
+                    <p style="margin-top: -10px; margin-bottom: -5px !important">Mời bạn bè</p>
+                    <hr>
+                </li>
+                <li class="">
+                    <p style="margin-top: -10px !important">Liên kết tài khoản</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-xs-12 mt--30 mt--md--0">
+            <div class="tab-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+</div>

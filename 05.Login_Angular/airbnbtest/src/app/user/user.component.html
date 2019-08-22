@@ -1,43 +1,23 @@
-<!-- <h4>Content from Server</h4>
-{{board}}
-{{errorMessage}} -->
-<div class="container fixed-top" style="margin-top: 60px !important">
-    <h3>Thay đổi mật khẩu</h3>
+<div class="container">
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-
-            <table class="table table-hover">
-
-                <tbody>
-                    <tr>
-                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thay đổi thông tin</td>
-                    </tr>
-                    <tr>
-                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thay đổi mật khẩu</td>
-                    </tr>
-                    <tr>
-                        <td [routerLink]="['/']" routerLinkActive="router-link-active">Thanh toán</td>
-                    </tr>
-                </tbody>
-            </table>
-
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <img style="margin-top: 10px; margin-bottom: 10px; margin-left: -110px"
+                src="https://farm1.staticflickr.com/898/42439685992_cb60d88e9e_b.jpg" alt="Luxstay" width="180"
+                height="55"  [routerLink]="['/homepage']" routerLinkActive="router-link-active" >
         </div>
-        <div class="col-8">
-            <form>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-                <div class="form-group col col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <div class="form-group">
-                        <label>Mật khẩu hiện tại</label>
-                        <input type="text" class="form-control" name="password" [(ngModel)]="oldPass">
-                        <label>Mật khẩu mới</label>
-                        <input type="text" class="form-control" name="password" [(ngModel)]="newPass">
-                        <!-- <label>Xác nhận mật khẩu mới</label>
-                        <input type="text" class="form-control" name="password" [(ngModel)]="newPass"> -->
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" (click)="updatePassword()">Save</button>
-            </form>
         </div>
     </div>
-
 </div>
+<div class="pg-account-menu d-none d-md-block">
+    <div id="menu" class="container container--sm"><a [routerLink]="['/homepage/me/bookings']" routerLinkActive="router-link-active"  class=""><span class="rel">Đặt chỗ của
+                tôi</span>
+            <!----></a><a href="/vi/me/messages" class=""><span class="rel">Tin nhắn</span>
+            <!----></a><a [routerLink]="['/homepage/me/edit-account']" routerLinkActive="router-link-active" 
+            class="nuxt-link-exact-active nuxt-link-active active"><span class="rel">Cài đặt tài khoản</span>
+            <!----></a><a href="/vi/me/lux-coin" class=""><span class="rel">Lux Coin</span>
+            <!----></a><a href="/vi/me/wish-list" class=""><span class="rel">Yêu thích</span>
+            <!----></a></div>
+</div>
+<router-outlet></router-outlet>

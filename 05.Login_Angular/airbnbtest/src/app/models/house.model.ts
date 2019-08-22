@@ -11,5 +11,8 @@ export class House {
     pricePerMonth: number;
     typeHouse: string;
     typeRoom: string;
-    owner: User;
+    user: User;
+    utilities: string[];
+    maxGuest: number;
+    status: boolean;
 }
